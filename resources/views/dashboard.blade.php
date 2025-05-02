@@ -119,10 +119,12 @@
                         // Show current attachment if exists
                         if (task.attachment) {
                             $('#current_attachment').html(`
-                            <p class="text-sm text-gray-600">Current file:
-                                <a href="${FILESYSTEM_URL}/storage/${task.attachment}" target="_blank" class="text-blue-500 underline">View</a>
-                            </p>
-                        `);
+                                <div class="mt-4 space-y-2">
+                                    <img src="${FILESYSTEM_URL}/storage/${task.attachment}"
+                                        alt="Attachment"
+                                        class="object-cover w-32 h-32 border rounded shadow" />
+                                </div>
+                            `);
                         } else {
                             $('#current_attachment').html(
                                 '<p class="text-sm text-gray-600">No file attached</p>');
@@ -204,9 +206,6 @@
                         } else {
                             $('#view_attachment').html('<p class="mt-4 text-gray-500">No attachment</p>');
                         }
-
-
-
 
                         // Open modal
                         window.dispatchEvent(new CustomEvent('open-modal', {
